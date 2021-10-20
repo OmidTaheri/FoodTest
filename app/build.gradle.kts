@@ -56,6 +56,7 @@ dependencies {
     implementation (JetpackDependencies.CORE_KTX)
     implementation (UiDependencies.APPCOMPAT)
     implementation (UiDependencies.MATERIAL)
+    implementation (UiDependencies.CONSTRAINT_LAYOUT)
     testImplementation (TestDependencies.JUNIT)
     androidTestImplementation (TestDependencies.EXT_JUNIT)
     androidTestImplementation (TestDependencies.ESPRESSO)

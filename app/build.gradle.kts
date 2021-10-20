@@ -48,6 +48,10 @@ android {
     }
 }
 
+android.sourceSets.all {
+    kotlin.srcDir("src/$name/kotlin")
+}
+
 dependencies {
     implementation (JetpackDependencies.CORE_KTX)
     implementation (UiDependencies.APPCOMPAT)

@@ -1,26 +1,43 @@
+import dependencies.JetpackDependencies
+import dependencies.UiDependencies
+import dependencies.TestDependencies
+
 plugins {
-    id("com.android.application")
-    id ("kotlin-android")
+    id(BuildPlugins.ANDROID_APPLICATION)
+    id (BuildPlugins.KOTLIN_ANDROID)
 }
 
 android {
-    compileSdk = 31
+    compileSdk = BuildAndroidConfig.COMPILE_SDK_VERSION
 
     defaultConfig {
-        applicationId = "ir.omidtaheri.foodtest"
-        minSdk = 21
-        targetSdk = 31
-        versionCode = 1
-        versionName = "1.0.0"
+        applicationId = BuildAndroidConfig.APPLICATION_ID
+        minSdk = BuildAndroidConfig.MIN_SDK_VERSION
+        targetSdk = BuildAndroidConfig.TARGET_SDK_VERSION
+        versionCode = BuildAndroidConfig.VERSION_CODE
+        versionName = BuildAndroidConfig.VERSION_NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner =  BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = true
-            proguardFiles (getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        getByName(BuildTypes.RELEASE){
+            isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
+            isShrinkResources = BuildTypeRelease.isMinifyEnabled
+            isDebuggable = BuildTypeRelease.debuggable
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
+        getByName(BuildTypes.DEBUG){
+            applicationIdSuffix = BuildTypeDebug.APPLICATION_ID_SUFFIX
+            versionNameSuffix = BuildTypeDebug.VERSION_SUFFIX
+            isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
+            isShrinkResources = BuildTypeDebug.isMinifyEnabled
+            isDebuggable = BuildTypeDebug.debuggable
+        }
+
     }
     compileOptions {
         sourceCompatibility =JavaVersion.VERSION_1_8
@@ -32,10 +49,10 @@ android {
 }
 
 dependencies {
-    implementation ("androidx.core:core-ktx:1.6.0")
-    implementation ("androidx.appcompat:appcompat:1.3.1")
-    implementation ("com.google.android.material:material:1.4.0")
-    testImplementation ("junit:junit:4.+")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
+    implementation (JetpackDependencies.CORE_KTX)
+    implementation (UiDependencies.APPCOMPAT)
+    implementation (UiDependencies.MATERIAL)
+    testImplementation (TestDependencies.JUNIT)
+    androidTestImplementation (TestDependencies.EXT_JUNIT)
+    androidTestImplementation (TestDependencies.ESPRESSO)
 }

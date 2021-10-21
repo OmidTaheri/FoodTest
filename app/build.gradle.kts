@@ -2,6 +2,7 @@ import dependencies.JetpackDependencies
 import dependencies.TestDependencies
 import dependencies.UiDependencies
 import dependencies.GeneralDependencies
+import dependencies.AnnotationProcessorsDependencies
 import java.io.FileInputStream
 import java.util.*
 
@@ -81,4 +82,8 @@ dependencies {
     androidTestImplementation(TestDependencies.EXT_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
     implementation(GeneralDependencies.RX_JAVA)
+    implementation(AnnotationProcessorsDependencies.ROOM)
+    implementation(JetpackDependencies.ROOM)
+    implementation(JetpackDependencies.ROOM_KTX)
+    implementation(JetpackDependencies.ROOM_RX)
 }

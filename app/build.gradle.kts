@@ -86,4 +86,7 @@ dependencies {
     implementation(JetpackDependencies.ROOM)
     implementation(JetpackDependencies.ROOM_KTX)
     implementation(JetpackDependencies.ROOM_RX)
+    implementation(GeneralDependencies.JAVAX_INJECT)
+    implementation(AnnotationProcessorsDependencies.DAGGER)
+    implementation(GeneralDependencies.DAGGER)
 }

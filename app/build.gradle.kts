@@ -1,6 +1,7 @@
 import dependencies.JetpackDependencies
 import dependencies.TestDependencies
 import dependencies.UiDependencies
+import dependencies.GeneralDependencies
 import java.io.FileInputStream
 import java.util.*
 
@@ -79,4 +80,5 @@ dependencies {
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.EXT_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
+    implementation(GeneralDependencies.RX_JAVA)
 }

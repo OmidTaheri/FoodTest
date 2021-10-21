@@ -1,11 +1,18 @@
 import dependencies.JetpackDependencies
-import dependencies.UiDependencies
 import dependencies.TestDependencies
+import dependencies.UiDependencies
+import java.io.FileInputStream
+import java.util.*
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
-    id (BuildPlugins.KOTLIN_ANDROID)
+    id(BuildPlugins.KOTLIN_ANDROID)
 }
+
+
+val localPropertiesFile = rootProject.file("local.properties")
+val localProperties = Properties()
+localProperties.load(FileInputStream(localPropertiesFile))
 
 android {
     compileSdk = BuildAndroidConfig.COMPILE_SDK_VERSION
@@ -17,11 +24,21 @@ android {
         versionCode = BuildAndroidConfig.VERSION_CODE
         versionName = BuildAndroidConfig.VERSION_NAME
 
-        testInstrumentationRunner =  BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER
+        testInstrumentationRunner = BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = localProperties["signing.key.alias"].toString()
+            keyPassword = localProperties["signing.key.password"].toString()
+            storeFile = file(localProperties["signing.store.file"]!!)
+            storePassword = localProperties["signing.store.password"].toString()
+        }
     }
 
     buildTypes {
-        getByName(BuildTypes.RELEASE){
+
+        release {
             isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
             isShrinkResources = BuildTypeRelease.isMinifyEnabled
             isDebuggable = BuildTypeRelease.debuggable
@@ -29,8 +46,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName(name)
         }
-        getByName(BuildTypes.DEBUG){
+
+        debug {
             applicationIdSuffix = BuildTypeDebug.APPLICATION_ID_SUFFIX
             versionNameSuffix = BuildTypeDebug.VERSION_SUFFIX
             isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
@@ -40,8 +59,8 @@ android {
 
     }
     compileOptions {
-        sourceCompatibility =JavaVersion.VERSION_1_8
-        targetCompatibility =JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
@@ -53,11 +72,11 @@ android.sourceSets.all {
 }
 
 dependencies {
-    implementation (JetpackDependencies.CORE_KTX)
-    implementation (UiDependencies.APPCOMPAT)
-    implementation (UiDependencies.MATERIAL)
-    implementation (UiDependencies.CONSTRAINT_LAYOUT)
-    testImplementation (TestDependencies.JUNIT)
-    androidTestImplementation (TestDependencies.EXT_JUNIT)
-    androidTestImplementation (TestDependencies.ESPRESSO)
+    implementation(JetpackDependencies.CORE_KTX)
+    implementation(UiDependencies.APPCOMPAT)
+    implementation(UiDependencies.MATERIAL)
+    implementation(UiDependencies.CONSTRAINT_LAYOUT)
+    testImplementation(TestDependencies.JUNIT)
+    androidTestImplementation(TestDependencies.EXT_JUNIT)
+    androidTestImplementation(TestDependencies.ESPRESSO)
 }

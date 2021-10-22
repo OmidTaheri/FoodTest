@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FoodTest</string>
+    <string name="navigation_drawer_header_title">دارچین</string>
+    <string name="navigation_drawer_header_text">دارچین</string>
+    <string name="navigation_drawer_item1">زبان</string>
+    <string name="navigation_drawer_item2">حالت شب </string>
+    <string name="navigation_drawer_item3">سایز متن</string>
 </resources>

@@ -5,4 +5,5 @@
     <string name="navigation_drawer_item1">زبان</string>
     <string name="navigation_drawer_item2">حالت شب </string>
     <string name="navigation_drawer_item3">سایز متن</string>
+    <string name="hello_blank_fragment">دسته بندی</string>
 </resources>

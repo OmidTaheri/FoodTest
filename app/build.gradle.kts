@@ -83,11 +83,11 @@ dependencies {
     androidTestImplementation(TestDependencies.ESPRESSO)
     implementation(GeneralDependencies.RX_JAVA)
     implementation(GeneralDependencies.RX_ANDROID)
-    implementation(AnnotationProcessorsDependencies.ROOM)
+    annotationProcessor(AnnotationProcessorsDependencies.ROOM)
     implementation(JetpackDependencies.ROOM)
     implementation(JetpackDependencies.ROOM_KTX)
     implementation(JetpackDependencies.ROOM_RX)
     implementation(GeneralDependencies.JAVAX_INJECT)
-    implementation(AnnotationProcessorsDependencies.DAGGER)
+    annotationProcessor(AnnotationProcessorsDependencies.DAGGER)
     implementation(GeneralDependencies.DAGGER)
 }

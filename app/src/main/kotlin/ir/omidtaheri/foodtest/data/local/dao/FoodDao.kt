@@ -3,6 +3,7 @@ package ir.omidtaheri.foodtest.data.local.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.RewriteQueriesToDropUnusedColumns
 import io.reactivex.rxjava3.core.Single
 import ir.omidtaheri.foodtest.data.local.entity.FoodEntity
 import ir.omidtaheri.foodtest.data.local.entity.tuple.FoodDetailTuple
@@ -14,6 +15,7 @@ interface FoodDao {
     @Insert
     fun insertFood(food: FoodEntity): Single<Long>
 
+    @RewriteQueriesToDropUnusedColumns
     @Query("SELECT * FROM Foods INNER JOIN FoodCategory ON  Foods.categoryId = FoodCategory.cid WHERE Foods.fid = :foodId")
     fun getFoodDetail(foodId: Long): Single<FoodDetailTuple>
 

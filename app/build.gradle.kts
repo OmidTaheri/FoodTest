@@ -1,8 +1,4 @@
-import dependencies.JetpackDependencies
-import dependencies.TestDependencies
-import dependencies.UiDependencies
-import dependencies.GeneralDependencies
-import dependencies.AnnotationProcessorsDependencies
+import dependencies.*
 import java.io.FileInputStream
 import java.util.*
 
@@ -27,6 +23,12 @@ android {
         versionName = BuildAndroidConfig.VERSION_NAME
 
         testInstrumentationRunner = BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf("room.schemaLocation" to "$projectDir/schemas")
+            }
+        }
     }
 
     signingConfigs {

@@ -93,4 +93,6 @@ dependencies {
     implementation(GeneralDependencies.JAVAX_INJECT)
     kapt(AnnotationProcessorsDependencies.DAGGER)
     implementation(GeneralDependencies.DAGGER)
+    implementation(JetpackDependencies.NAVIGATION_FRAGMENT)
+    implementation(JetpackDependencies.NAVIGATION_UI)
 }

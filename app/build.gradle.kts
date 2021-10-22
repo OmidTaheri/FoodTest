@@ -82,6 +82,7 @@ dependencies {
     androidTestImplementation(TestDependencies.EXT_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
     implementation(GeneralDependencies.RX_JAVA)
+    implementation(GeneralDependencies.RX_ANDROID)
     implementation(AnnotationProcessorsDependencies.ROOM)
     implementation(JetpackDependencies.ROOM)
     implementation(JetpackDependencies.ROOM_KTX)

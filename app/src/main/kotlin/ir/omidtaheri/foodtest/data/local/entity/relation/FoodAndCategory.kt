@@ -8,7 +8,7 @@ import ir.omidtaheri.foodtest.data.local.entity.FoodEntity
 data class FoodAndCategory(
     @Embedded val fooDCategory: FoodCategoryEntity,
     @Relation(
-        parentColumn = "id",
+        parentColumn = "cid",
         entityColumn = "categoryId"
     )
     val foods: List<FoodEntity>

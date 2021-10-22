@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">FoodTest</string>
+    <string name="toolbar_title">دارچین</string>
     <string name="navigation_drawer_header_title">دارچین</string>
     <string name="navigation_drawer_header_text">دارچین</string>
     <string name="navigation_drawer_item1">زبان</string>
     <string name="navigation_drawer_item2">حالت شب </string>
     <string name="navigation_drawer_item3">سایز متن</string>
-    <string name="hello_blank_fragment">دسته بندی</string>
+    <string name="category_list_fragment_title">دسته بندی</string>
 </resources>

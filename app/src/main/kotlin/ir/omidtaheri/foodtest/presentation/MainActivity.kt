@@ -17,14 +17,18 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        setSupportActionBar( binding.topAppBar)
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         val appBarConfiguration =
             AppBarConfiguration(navController.graph, binding.drawerLayout)
+
         binding.topAppBar.setupWithNavController(navController, appBarConfiguration)
         binding.navigationView.setupWithNavController(navController)
+        binding.bottomNavigation.setupWithNavController(navController)
 
 
     }

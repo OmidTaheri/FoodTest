@@ -5,9 +5,5 @@
     android:layout_height="match_parent"
     tools:context=".presentation.categorylist.CategoryListFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/category_list_fragment_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

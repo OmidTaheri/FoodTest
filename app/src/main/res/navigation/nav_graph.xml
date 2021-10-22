@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/categoryListFragment"
         android:name="ir.omidtaheri.foodtest.presentation.categorylist.CategoryListFragment"
-        android:label="category"
         tools:layout="@layout/fragment_category_list">
     </fragment>
 

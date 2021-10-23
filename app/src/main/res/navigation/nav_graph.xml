@@ -7,8 +7,13 @@
 
     <fragment
         android:id="@+id/categoryListFragment"
-        android:name="ir.omidtaheri.foodtest.presentation.categorylist.CategoryListFragment"
-        tools:layout="@layout/fragment_category_list">
-    </fragment>
+        android:name="ir.omidtaheri.foodtest.presentation.categorylist.CategoryListFragment"></fragment>
 
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="ir.omidtaheri.foodtest.presentation.blankfragment.BlankFragment" />
+
+    <fragment
+        android:id="@+id/blankFragment2"
+        android:name="ir.omidtaheri.foodtest.presentation.blankfragment.BlankFragment" />
 </navigation>

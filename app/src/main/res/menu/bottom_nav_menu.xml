@@ -3,28 +3,28 @@
 
     <item
         android:id="@+id/categoryListFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_fastfood_24"
-        android:title="دستور پخت"
-        android:enabled="true"/>
+        android:title="دستور پخت" />
 
     <item
         android:id="@+id/searchFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_search_24"
-        android:title="جستجو"
-        android:enabled="true"/>
+        android:title="جستجو" />
 
 
     <item
-        android:id="@+id/emptyFragment1"
+        android:id="@+id/blankFragment"
+        android:enabled="true"
         android:icon="@drawable/ic_food_bank_24"
-        android:title="چی بپزم"
-        android:enabled="true"/>
+        android:title="چی بپزم" />
 
 
     <item
-        android:id="@+id/emptyFragment2"
+        android:id="@+id/blankFragment2"
+        android:enabled="true"
         android:icon="@drawable/ic_person_24"
-        android:title="پروفایل"
-        android:enabled="true"/>
+        android:title="پروفایل" />
 
 </menu>

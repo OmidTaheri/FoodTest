@@ -6,6 +6,7 @@ buildscript {
     dependencies {
         classpath ("${BuildPluginsClasspath.ANDROID_GRADLE_PLUGIN}")
         classpath("${BuildPluginsClasspath.KOTLIN_GRADLE_PLUGIN}")
+        classpath("${BuildPluginsClasspath.SAFEARGS_PLUGIN}")
     }
 }
 

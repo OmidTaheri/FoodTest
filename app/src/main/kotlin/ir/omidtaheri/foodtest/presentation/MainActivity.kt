@@ -30,6 +30,7 @@ class MainActivity : BaseActivity() {
             AppBarConfiguration(
                 setOf(
                     R.id.categoryListFragment,
+                    R.id.searchFragment,
                     R.id.blankFragment,
                     R.id.blankFragment2
                 ), binding.drawerLayout

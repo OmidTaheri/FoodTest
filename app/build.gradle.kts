@@ -91,6 +91,7 @@ dependencies {
     androidTestImplementation(TestDependencies.ESPRESSO)
     implementation(GeneralDependencies.RX_JAVA)
     implementation(GeneralDependencies.RX_ANDROID)
+    implementation(GeneralDependencies.RX_KOTLIN)
     kapt(AnnotationProcessorsDependencies.ROOM)
     implementation(JetpackDependencies.ROOM)
     implementation(JetpackDependencies.ROOM_KTX)

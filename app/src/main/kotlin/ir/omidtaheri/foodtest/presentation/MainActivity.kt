@@ -1,29 +1,32 @@
 package ir.omidtaheri.foodtest.presentation
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import ir.omidtaheri.foodtest.R
+import ir.omidtaheri.foodtest.base.BaseActivity
 import ir.omidtaheri.foodtest.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
 
         setSupportActionBar(binding.topAppBar)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
-        val appBarConfiguration =
+        appBarConfiguration =
             AppBarConfiguration(
                 setOf(
                     R.id.categoryListFragment,
@@ -37,5 +40,10 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setupWithNavController(navController)
 
 
+    }
+
+    override fun inflateViewBinding(inflater: LayoutInflater): View? {
+        binding = ActivityMainBinding.inflate(inflater)
+        return binding.root
     }
 }

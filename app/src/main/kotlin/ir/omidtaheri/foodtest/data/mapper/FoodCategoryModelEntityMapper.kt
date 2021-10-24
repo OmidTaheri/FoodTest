@@ -8,12 +8,12 @@ class FoodCategoryModelEntityMapper @Inject constructor() :
     IModelEntityMapper<FoodCategoryModel, FoodCategoryEntity>,
     IEntityModelMapper<FoodCategoryEntity, FoodCategoryModel> {
     override fun mapFromEntity(from: FoodCategoryEntity): FoodCategoryModel {
-        return FoodCategoryModel(from.name,from.id)
+        return FoodCategoryModel(from.name,from.id,from.imageUrl)
     }
 
     override fun mapToEntity(from: FoodCategoryModel): FoodCategoryEntity {
         //id is auto generate
-        return FoodCategoryEntity(from.name,from.id)
+        return FoodCategoryEntity(from.name,from.id,from.imageUrl)
     }
 
 }

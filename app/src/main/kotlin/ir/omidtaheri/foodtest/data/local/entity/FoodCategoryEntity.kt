@@ -17,5 +17,7 @@ data class FoodCategoryEntity(
     val name: String,
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "cid")
-    val id: Long
+    val id: Long,
+    @ColumnInfo(name = "imageUrl")
+    val imageUrl: String?,
 )

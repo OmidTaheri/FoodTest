@@ -1,6 +1,7 @@
 package ir.omidtaheri.foodtest.data.local.dao
 
 import androidx.room.*
+import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Single
 import ir.omidtaheri.foodtest.data.local.entity.FoodCategoryEntity
 import ir.omidtaheri.foodtest.data.local.entity.relation.FoodAndCategory
@@ -12,9 +13,9 @@ interface FoodCategoryDao {
     fun insertFoodCategory(foodCategory: FoodCategoryEntity): Single<Long>
 
     @Query("SELECT * FROM FoodCategory")
-    fun getAllFoodCategories(): Single<List<FoodCategoryEntity>>
+    fun getAllFoodCategories(): Maybe<List<FoodCategoryEntity>>
 
     @Transaction
     @Query("SELECT * FROM FoodCategory WHERE cid = :categoryId")
-    fun getAllFoodsByCategory(categoryId: Long): Single<FoodAndCategory>
+    fun getAllFoodsByCategory(categoryId: Long): Maybe<FoodAndCategory>
 }

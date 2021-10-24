@@ -1,5 +1,6 @@
 package ir.omidtaheri.foodtest.data.local.datasource
 
+import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Single
 import ir.omidtaheri.foodtest.data.local.dao.FoodCategoryDao
 import ir.omidtaheri.foodtest.data.local.entity.FoodCategoryEntity
@@ -31,7 +32,7 @@ class FoodCategoryLocalDataSourceImpl @Inject constructor(
         )
     }
 
-    override fun getAllFoodCategories(): Single<List<FoodCategoryModel>> {
+    override fun getAllFoodCategories(): Maybe<List<FoodCategoryModel>> {
         return foodCategoryDao.getAllFoodCategories().map { list ->
             list.map {
                 foodCategoryEntityModelMapper.mapFromEntity(it)
@@ -39,7 +40,7 @@ class FoodCategoryLocalDataSourceImpl @Inject constructor(
         }
     }
 
-    override fun getAllFoodsByCategory(categoryId: Long): Single<List<FoodModel>> {
+    override fun getAllFoodsByCategory(categoryId: Long): Maybe<List<FoodModel>> {
         return foodCategoryDao.getAllFoodsByCategory(categoryId).map { relationItem ->
             relationItem.foods.map {
                 foodEntityModelMapper.mapFromEntity(it, relationItem.fooDCategory.name)

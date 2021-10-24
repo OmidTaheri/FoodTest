@@ -1,5 +1,6 @@
 package ir.omidtaheri.foodtest.data.repository
 
+import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Single
 import ir.omidtaheri.foodtest.data.datastate.DataState
 import ir.omidtaheri.foodtest.data.local.datasource.IFoodCategoryLocalDataSource
@@ -18,7 +19,7 @@ class FoodCategoryRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getAllFoodCategories(): Single<DataState<List<FoodCategoryModel>>> {
+    override fun getAllFoodCategories(): Maybe<DataState<List<FoodCategoryModel>>> {
         return foodCategoryLocalDataSource.getAllFoodCategories()
             .map<DataState<List<FoodCategoryModel>>> {
                 DataState.Success(it)
@@ -27,7 +28,7 @@ class FoodCategoryRepositoryImpl @Inject constructor(
             }
     }
 
-    override fun getAllFoodsByCategory(categoryId: Long): Single<DataState<List<FoodModel>>> {
+    override fun getAllFoodsByCategory(categoryId: Long): Maybe<DataState<List<FoodModel>>> {
         return foodCategoryLocalDataSource.getAllFoodsByCategory(categoryId)
             .map<DataState<List<FoodModel>>> {
                 DataState.Success(it)

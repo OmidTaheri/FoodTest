@@ -1,5 +1,6 @@
 package ir.omidtaheri.foodtest.data.repository
 
+import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Single
 import ir.omidtaheri.foodtest.data.datastate.DataState
 import ir.omidtaheri.foodtest.data.local.datasource.IFoodLocalDataSource
@@ -19,7 +20,7 @@ class FoodRepositoryImpl @Inject constructor(
     }
 
 
-    override fun getFoodDetail(foodId: Long): Single<DataState<FoodDetailModel>> {
+    override fun getFoodDetail(foodId: Long): Maybe<DataState<FoodDetailModel>> {
         return foodLocalDataSource.getFoodDetail(foodId)
             .map<DataState<FoodDetailModel>> {
                 DataState.Success(it)
@@ -28,7 +29,7 @@ class FoodRepositoryImpl @Inject constructor(
             }
     }
 
-    override fun searchFood(query: String): Single<DataState<List<FoodModel>>> {
+    override fun searchFood(query: String): Maybe<DataState<List<FoodModel>>> {
         return foodLocalDataSource.searchFood(query)
             .map<DataState<List<FoodModel>>> {
                 DataState.Success(it)

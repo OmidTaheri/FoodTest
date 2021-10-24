@@ -1,9 +1,11 @@
 package ir.omidtaheri.foodtest.presentation.search
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
@@ -104,6 +106,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
                     GridLayoutManager(context, 2)
                 recyclerAdapter.addItems(it)
                 multiStatePage.toDateState()
+
             } else {
                 multiStatePage.getRecyclerView().layoutManager =
                     LinearLayoutManager(context, RecyclerView.VERTICAL, false)
@@ -118,6 +121,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
                 View.OnClickListener {
                     if (checkSearchQuery(searchbar.text.toString())) {
                         multiStatePage.toLoadingState()
+                        hideSoftKeyboard(viewBinding!!.root)
                         viewModel.searchQuery(searchbar.text.toString())
                     } else {
                         showToast(getString(R.string.search_fragment_query_blank))
@@ -130,8 +134,10 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
         })
 
         viewModel.isLoading.observe(this, Observer {
-            if (it)
+            if (it) {
                 multiStatePage.toLoadingState()
+                hideSoftKeyboard(viewBinding!!.root)
+            }
         })
 
     }
@@ -152,5 +158,9 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
         viewBinding = null
     }
 
-
+    fun hideSoftKeyboard(view: View) {
+        val imm =
+            requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.applicationWindowToken, 0)
+    }
 }

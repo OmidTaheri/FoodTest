@@ -1,0 +1,25 @@
+<resources>
+    <dimen name="searchbar_height">64dp</dimen>
+    <dimen name="margin_x">8dp</dimen>
+    <dimen name="margin_2x">16dp</dimen>
+    <dimen name="margin_3x">24dp</dimen>
+    <dimen name="food_list_item_width">160dp</dimen>
+
+    <!-- ========================== Md default Text size ======================================= -->
+
+    <dimen name="material_text_size_headline_1_light">96sp</dimen>
+    <dimen name="material_text_size_headline_2_light">60sp</dimen>
+    <dimen name="material_text_size_headline_3_regular">48sp</dimen>
+    <dimen name="material_text_size_headline_4_regular">34sp</dimen>
+    <dimen name="material_text_size_headline_5_regular">24sp</dimen>
+    <dimen name="material_text_size_headline_6_medium">20sp</dimen>
+
+    <dimen name="material_text_size_subtitle_1_regular">16sp</dimen>
+    <dimen name="material_text_size_subtitle_2_medium">14sp</dimen>
+    <dimen name="material_text_size_body_1_regular">16sp</dimen>
+    <dimen name="material_text_size_body_2_regular">14sp</dimen>
+    <dimen name="material_text_size_button_medium">14sp</dimen>
+    <dimen name="material_text_size_caption_regular">12sp</dimen>
+    <dimen name="material_text_size_overline_regular">10sp</dimen>
+
+</resources>

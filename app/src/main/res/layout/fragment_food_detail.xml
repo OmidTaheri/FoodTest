@@ -41,7 +41,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="خورشت بادمجان"
+            android:text="@string/food_detail_name_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_container" />
 
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="سنتی"
+            android:text="@string/food_detail_category_title"
             app:layout_constraintStart_toStartOf="@id/name"
             app:layout_constraintTop_toBottomOf="@id/name" />
 
@@ -63,11 +63,12 @@
             style="?attr/textAppearanceHeadline6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:background="@color/purple_200"
             android:gravity="start"
             android:text="@string/food_detail_material_title"
+            android:textAlignment="viewStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/name"
             app:layout_constraintTop_toBottomOf="@id/category" />
@@ -78,11 +79,11 @@
             style="?attr/textAppearanceBody2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="16dp"
-            android:gravity="start"
+            android:layout_marginEnd="8dp"
             android:lineSpacingExtra="4dp"
             android:text=""
+            android:textAlignment="viewStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/material_title"
             app:layout_constraintTop_toBottomOf="@id/material_title" />
@@ -93,11 +94,12 @@
             style="?attr/textAppearanceHeadline6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:background="@color/purple_200"
             android:gravity="start"
             android:text="@string/food_detail_recipe_title"
+            android:textAlignment="viewStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/name"
             app:layout_constraintTop_toBottomOf="@id/material_text" />
@@ -108,11 +110,11 @@
             style="?attr/textAppearanceBody2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="16dp"
-            android:gravity="start"
+            android:layout_marginEnd="8dp"
             android:lineSpacingExtra="4dp"
             android:text=""
+            android:textAlignment="viewStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/recipe_title"
             app:layout_constraintTop_toBottomOf="@id/recipe_title" />

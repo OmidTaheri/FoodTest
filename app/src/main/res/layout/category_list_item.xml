@@ -9,8 +9,8 @@
     android:layout_marginEnd="16dp"
     app:cardCornerRadius="5dp"
     app:cardElevation="2dp"
-    app:strokeColor="?attr/colorPrimaryVariant"
-    app:strokeWidth="2dp">
+    app:strokeColor="?attr/colorSecondaryVariant"
+    app:strokeWidth="1dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,11 +57,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="سنتی"
-                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="16dp"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

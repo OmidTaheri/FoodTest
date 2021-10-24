@@ -1,19 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/categoryListFragment">
 
     <fragment
         android:id="@+id/categoryListFragment"
-        android:name="ir.omidtaheri.foodtest.presentation.categorylist.CategoryListFragment"></fragment>
+        android:name="ir.omidtaheri.foodtest.presentation.categorylist.CategoryListFragment"
+        android:label="@string/category_list_fragment_title">
+        <action
+            android:id="@+id/action_categoryListFragment_to_foodListFragment"
+            app:destination="@id/foodListFragment">
+            <argument
+                android:name="categoryId"
+                app:argType="long" />
+
+            <argument
+                android:name="categoryName"
+                app:argType="string" />
+
+        </action>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/foodListFragment"
+        android:name="ir.omidtaheri.foodtest.presentation.foodlist.FoodListFragment">
+
+        <argument
+            android:name="categoryId"
+            app:argType="long" />
+
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+
+
+        <action
+            android:id="@+id/action_foodListFragment_to_foodDetailFragment"
+            app:destination="@id/foodDetailFragment">
+            <argument
+                android:name="foodId"
+                app:argType="long" />
+
+        </action>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/foodDetailFragment"
+        android:name="ir.omidtaheri.foodtest.presentation.detail.FoodDetailFragment">
+        <argument
+            android:name="foodId"
+            app:argType="long" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="ir.omidtaheri.foodtest.presentation.search.SearchFragment"
+        android:label="@string/search_fragment_title">
+        <action
+            android:id="@+id/action_searchFragment_to_foodDetailFragment"
+            app:destination="@id/foodDetailFragment">
+            <argument
+                android:name="foodId"
+                app:argType="long" />
+
+        </action>
+    </fragment>
+
 
     <fragment
         android:id="@+id/blankFragment"
-        android:name="ir.omidtaheri.foodtest.presentation.blankfragment.BlankFragment" />
+        android:name="ir.omidtaheri.foodtest.presentation.blankfragment.BlankFragment"
+        android:label="@string/blankFragment_title"/>
 
     <fragment
         android:id="@+id/blankFragment2"
-        android:name="ir.omidtaheri.foodtest.presentation.blankfragment.BlankFragment" />
+        android:name="ir.omidtaheri.foodtest.presentation.blankfragment.BlankFragment"
+        android:label="@string/blankFragment2_title"/>
 </navigation>

@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.FoodTest.SearchBar"
         android:id="@+id/searchbar_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -19,7 +20,7 @@
             android:id="@+id/searchbar"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:textColor="?attr/colorPrimary" />
+            android:textColor="?attr/foodTestSearchBarTextColor" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

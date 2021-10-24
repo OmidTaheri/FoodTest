@@ -19,7 +19,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/searchbar"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="@dimen/searchbar_height"
             android:textColor="?attr/foodTestSearchBarTextColor" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -29,7 +29,7 @@
         android:id="@+id/MultiStatePage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/margin_x"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

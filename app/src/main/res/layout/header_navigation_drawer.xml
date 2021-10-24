@@ -2,26 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:background="?attr/colorPrimaryVariant"
     android:fitsSystemWindows="true"
-    android:background="?attr/colorPrimaryVariant">
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="@dimen/margin_3x"
+        android:layout_marginTop="@dimen/margin_3x"
+        android:layout_marginEnd="@dimen/margin_3x"
         android:text="@string/navigation_drawer_header_title"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        android:textColor="?attr/colorOnPrimary"/>
+        android:textColor="?attr/colorOnPrimary" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="@dimen/margin_3x"
+        android:layout_marginEnd="@dimen/margin_3x"
+        android:layout_marginBottom="@dimen/margin_3x"
         android:text="@string/navigation_drawer_header_text"
         android:textAppearance="?attr/textAppearanceBody2"
         android:textColor="?attr/colorOnPrimary" />

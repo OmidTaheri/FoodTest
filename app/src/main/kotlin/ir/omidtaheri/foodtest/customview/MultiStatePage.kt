@@ -46,7 +46,7 @@ class MultiStatePage(context: Context, attrs: AttributeSet?) : ConstraintLayout(
     }
 
     private fun setErrorButtonText(text: String) {
-        viewBinding.errorLayout.errorText.text = text
+        viewBinding.errorLayout.errorBtnRetry.text = text
     }
 
 

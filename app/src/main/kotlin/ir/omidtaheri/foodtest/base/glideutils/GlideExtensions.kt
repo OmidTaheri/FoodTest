@@ -17,7 +17,7 @@ fun ImageView.loadFoodImage(url: String, mConetxt: Context) {
         .load(url)
         .skipMemoryCache(false)
         .diskCacheStrategy(DiskCacheStrategy.ALL)
-        .override(160, 160)
+        .override(R.integer.glide_food_image_size, R.integer.glide_food_image_size)
         .thumbnail(0.4f)
         .apply(requestOptions)
         .into(this)
@@ -32,7 +32,10 @@ fun ImageView.loadFoodCategoryImage(url: String, mConetxt: Context) {
         .load(url)
         .skipMemoryCache(false)
         .diskCacheStrategy(DiskCacheStrategy.ALL)
-        .override(320, 80)
+        .override(
+            R.integer.glide_food_category_width_size,
+            R.integer.glide_food_category_height_size
+        )
         .thumbnail(0.6f)
         .apply(requestOptions)
         .into(this)

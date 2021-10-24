@@ -1,5 +1,6 @@
 package ir.omidtaheri.foodtest.data.local.dao
 
+import androidx.annotation.Keep
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -10,6 +11,7 @@ import ir.omidtaheri.foodtest.data.local.entity.FoodEntity
 import ir.omidtaheri.foodtest.data.local.entity.tuple.FoodDetailTuple
 import ir.omidtaheri.foodtest.data.local.entity.tuple.FoodTuple
 
+@Keep
 @Dao
 interface FoodDao {
 

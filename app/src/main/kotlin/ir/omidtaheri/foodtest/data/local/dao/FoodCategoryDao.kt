@@ -1,11 +1,13 @@
 package ir.omidtaheri.foodtest.data.local.dao
 
+import androidx.annotation.Keep
 import androidx.room.*
 import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Single
 import ir.omidtaheri.foodtest.data.local.entity.FoodCategoryEntity
 import ir.omidtaheri.foodtest.data.local.entity.relation.FoodAndCategory
 
+@Keep
 @Dao
 interface FoodCategoryDao {
 

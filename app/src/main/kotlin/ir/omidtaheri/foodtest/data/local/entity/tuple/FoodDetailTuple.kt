@@ -1,8 +1,9 @@
 package ir.omidtaheri.foodtest.data.local.entity.tuple
 
+import androidx.annotation.Keep
 import androidx.room.ColumnInfo
 
-
+@Keep
 data class FoodDetailTuple(
     @ColumnInfo(name = "title")
     val title: String,

@@ -1,58 +1,107 @@
 package ir.omidtaheri.foodtest.presentation.categorylist
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ir.omidtaheri.foodtest.R
+import ir.omidtaheri.foodtest.base.BaseFragment
+import ir.omidtaheri.foodtest.base.viewmodelutils.GenericSavedStateViewModelFactory
+import ir.omidtaheri.foodtest.customview.MultiStatePage
+import ir.omidtaheri.foodtest.databinding.FragmentCategoryListBinding
+import ir.omidtaheri.foodtest.di.utils.DaggerInjectUtils
+import ir.omidtaheri.foodtest.presentation.categorylist.adapter.CategoryListAdapter
+import ir.omidtaheri.foodtest.presentation.categorylist.di.components.DaggerCategoryComponent
+import ir.omidtaheri.foodtest.presentation.categorylist.viewmodel.CategoryViewModel
 
 
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class CategoryListFragment : BaseFragment<CategoryViewModel>(), CategoryListAdapter.Callback {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoryListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class CategoryListFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var multiStatePage: MultiStatePage
+    private lateinit var recyclerAdapter: CategoryListAdapter
+    private var viewBinding: FragmentCategoryListBinding? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private val viewModel: CategoryViewModel by viewModels {
+        GenericSavedStateViewModelFactory(viewModelFactory, this)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
+        fetchData()
+    }
+
+    private fun initRecyclerView() {
+        multiStatePage.apply {
+            toLoadingState()
+            recyclerAdapter = CategoryListAdapter(requireContext(), this@CategoryListFragment)
+            configRecyclerView(
+                recyclerAdapter as RecyclerView.Adapter<RecyclerView.ViewHolder>,
+                LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            )
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category_list, container, false)
+    private fun fetchData() {
+        viewModel.getCategoryList()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CategoryListFragment.
-         */
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CategoryListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun inflateViewBinding(inflater: LayoutInflater, container: ViewGroup?): View? {
+        viewBinding = FragmentCategoryListBinding.inflate(inflater, container, false)
+        return viewBinding!!.root
     }
+
+    override fun bindUi() {
+        multiStatePage = viewBinding!!.MultiStatePage
+    }
+
+    override fun configDaggerComponent() {
+        DaggerCategoryComponent
+            .builder()
+            .applicationComponent(DaggerInjectUtils.provideApplicationComponent(requireContext().applicationContext))
+            .build()
+            .inject(this)
+    }
+
+    override fun setLivaDataObservers() {
+        viewModel.categoryItems.observe(this, Observer {
+            recyclerAdapter.addItems(it)
+            multiStatePage.toDateState()
+        })
+
+        viewModel.errorState.observe(this, Observer { errorMessage ->
+            multiStatePage.toErrorState(
+                View.OnClickListener {
+                    multiStatePage.toLoadingState()
+                    fetchData()
+                },
+                getString(R.string.error_state_error_text),
+                getString(R.string.error_state_error_button_text)
+            )
+        })
+    }
+
+
+    override fun onItemClick(categoryId: Long, categoryName: String) {
+        val action =
+            CategoryListFragmentDirections.actionCategoryListFragmentToFoodListFragment(
+                categoryId,
+                categoryName
+            )
+
+        findNavController().navigate(action)
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewBinding = null
+    }
+
+
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="glide_food_image_size">200</integer>
+    <integer name="glide_food_category_width_size">380</integer>
+    <integer name="glide_food_category_height_size">130</integer>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="animation_duration">1000</integer>
+    <integer name="long_animation_duration">1500</integer>
+
+    <integer name="glide_food_image_size">160</integer>
+    <integer name="glide_food_category_width_size">320</integer>
+    <integer name="glide_food_category_height_size">80</integer>
+</resources>

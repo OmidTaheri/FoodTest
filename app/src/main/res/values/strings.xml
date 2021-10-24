@@ -17,4 +17,6 @@
     <string name="searchbar_hint">جستجو</string>
     <string name="food_detail_material_title">مواد اولیه</string>
     <string name="food_detail_recipe_title">دستور پخت</string>
+    <string name="food_detail_name_title">نام غذا</string>
+    <string name="food_detail_category_title">دسته بندی غذا</string>
 </resources>

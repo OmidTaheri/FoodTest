@@ -18,7 +18,7 @@ object DependenciesVersions {
     object JetpackDependenciesVersions {
         const val CORE_KTX = "1.6.0"
         const val ROOM = "2.3.0"
-        const val NAVIGATION = "2.3.5"
+        const val NAVIGATION = "2.4.0-alpha01"
     }
 
 

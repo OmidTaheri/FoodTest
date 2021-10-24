@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import ir.omidtaheri.foodtest.base.BaseFragment
+import ir.omidtaheri.foodtest.base.glideutils.loadFoodImage
 import ir.omidtaheri.foodtest.base.viewmodelutils.GenericSavedStateViewModelFactory
 import ir.omidtaheri.foodtest.databinding.FragmentFoodDetailBinding
 import ir.omidtaheri.foodtest.di.utils.DaggerInjectUtils
@@ -19,6 +22,11 @@ import ir.omidtaheri.foodtest.presentation.detail.viewmodel.FoodDetailViewModel
 
 class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
 
+    private lateinit var foodImage: ImageView
+    private lateinit var foodName: TextView
+    private lateinit var foodCategory: TextView
+    private lateinit var foodRecipe: TextView
+    private lateinit var foodMaterial: TextView
 
     private var viewBinding: FragmentFoodDetailBinding? = null
 
@@ -42,6 +50,11 @@ class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
     }
 
     override fun bindUi() {
+        foodImage = viewBinding!!.foodImageview
+        foodName = viewBinding!!.name
+        foodCategory = viewBinding!!.category
+        foodRecipe = viewBinding!!.recipeText
+        foodMaterial = viewBinding!!.materialText
     }
 
     override fun configDaggerComponent() {
@@ -53,7 +66,13 @@ class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
     }
 
     override fun setLivaDataObservers() {
-        viewModel.foodDetail.observe(this, Observer {
+        viewModel.foodDetail.observe(this, Observer { food ->
+
+            food.imageUrl?.let { foodImage.loadFoodImage(food.imageUrl, requireContext()) }
+            foodName.text = food.title
+            foodCategory.text = food.categoryName
+            foodRecipe.text = food.recipe
+            foodMaterial.text = food.materials
         })
 
         viewModel.errorMessage.observe(this, Observer {
@@ -70,6 +89,5 @@ class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
         super.onDestroyView()
         viewBinding = null
     }
-
 
 }

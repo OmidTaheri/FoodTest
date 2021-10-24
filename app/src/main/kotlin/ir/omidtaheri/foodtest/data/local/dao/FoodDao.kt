@@ -19,7 +19,7 @@ interface FoodDao {
     @Query("SELECT * FROM Foods INNER JOIN FoodCategory ON  Foods.categoryId = FoodCategory.cid WHERE Foods.fid = :foodId")
     fun getFoodDetail(foodId: Long): Single<FoodDetailTuple>
 
-    @Query("SELECT title,Foods.fid,FoodCategory.name As categoryName,imageUrl FROM Foods INNER JOIN FoodCategory ON Foods.categoryId = FoodCategory.cid WHERE title LIKE :query OR materials LIKE :query")
+    @Query("SELECT title,Foods.fid,FoodCategory.name As categoryName,Foods.imageUrl As imageUrl FROM Foods INNER JOIN FoodCategory ON Foods.categoryId = FoodCategory.cid WHERE title LIKE :query OR materials LIKE :query")
     fun searchFood(query: String): Single<List<FoodTuple>>
 
 }

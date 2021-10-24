@@ -10,6 +10,11 @@
     <string name="search_fragment_title">جستجو</string>
     <string name="blankFragment_title">چی بپزم</string>
     <string name="blankFragment2_title">پروفایل</string>
-
-
+    <string name="empty_list_message">موردی وجود ندارد</string>
+    <string name="error_state_error_text">خطایی رخ داده است</string>
+    <string name="error_state_error_button_text">تلاش مجدد</string>
+    <string name="search_fragment_query_blank">متن مناسب وارد کنید</string>
+    <string name="searchbar_hint">جستجو</string>
+    <string name="food_detail_material_title">مواد اولیه</string>
+    <string name="food_detail_recipe_title">دستور پخت</string>
 </resources>

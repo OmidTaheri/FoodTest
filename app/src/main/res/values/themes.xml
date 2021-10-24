@@ -1,16 +1,218 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
     <style name="Theme.FoodTest" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        //color
+        <item name="colorPrimary">@color/teal_600</item>
+        <item name="colorPrimaryVariant">@color/teal_800</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+        <item name="colorSecondary">@color/pink_700</item>
+        <item name="colorSecondaryVariant">@color/pink_900</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorOnBackground">@color/black</item>
+
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+
+        <item name="colorError">@color/pink_800</item>
+        <item name="colorOnError">@color/white</item>
+
+        <item name="foodTestSearchBarHintColor">@color/black_alpha_60</item>
+        <item name="foodTestSearchBarTextColor">@color/black</item>
+
+        ///typography
+        <item name="textAppearanceHeadline1">@style/TextAppearance.FoodTest.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.FoodTest.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.FoodTest.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.FoodTest.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.FoodTest.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.FoodTest.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.FoodTest.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.FoodTest.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.FoodTest.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.FoodTest.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.FoodTest.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.FoodTest.Button</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.FoodTest.Overline</item>
+
+
+        //shape
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.FoodTest.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.FoodTest.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.FoodTest.LargeComponent
+        </item>
+
+        //system bars
+        <item name="android:navigationBarColor" tools:targetApi="21">?attr/colorPrimaryVariant
+        </item>
+        <item name="android:statusBarColor" tools:targetApi="21">?attr/colorPrimaryVariant</item>
     </style>
+
+
+    <style name="ShapeAppearance.FoodTest.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.FoodTest.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="ShapeAppearance.FoodTest.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">5dp</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+
+        <item name="fontFamily">@font/iran_sans_mobile_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_headline_1_light</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+
+        <item name="fontFamily">@font/iran_sans_mobile_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_headline_2_light</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+
+        <item name="fontFamily">@font/iran_sans_mobile_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_headline_3_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+
+        <item name="fontFamily">@font/iran_sans_mobile_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_headline_4_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+
+        <item name="fontFamily">@font/iran_sans_mobile_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_headline_5_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+
+        <item name="fontFamily">@font/iran_sans_mobile_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_headline_6_medium</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+
+        <item name="fontFamily">@font/iran_sans_mobile_num</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_subtitle_1_regular</item>
+    </style>
+
+    <style name="TextAppearance.FoodTest.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+
+        <item name="fontFamily">@font/iran_sans_mobile_num</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_subtitle_2_medium</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Body1" parent="TextAppearance.MaterialComponents.Body1">
+
+        <item name="fontFamily">@font/iran_sans_mobile_num</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_body_1_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Body2" parent="TextAppearance.MaterialComponents.Body2">
+
+        <item name="fontFamily">@font/iran_sans_mobile_num</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_body_2_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Caption" parent="TextAppearance.MaterialComponents.Caption">
+
+        <item name="fontFamily">@font/iran_sans_mobile_num</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_caption_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Button" parent="TextAppearance.MaterialComponents.Button">
+
+        <item name="fontFamily">@font/iran_sans_mobile_num</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_button_medium</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodTest.Overline" parent="TextAppearance.MaterialComponents.Overline">
+
+        <item name="fontFamily">@font/iran_sans_mobile_num</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:textSize">@dimen/material_text_size_overline_regular</item>
+    </style>
+
+
+    <style name="Widget.FoodTest.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextAppearance">?attr/textAppearanceHeadline5</item>
+        <item name="titleTextColor">?attr/colorOnPrimary</item>
+        <item name="android:background">?attr/colorPrimary</item>
+
+    </style>
+
+    <style name="Widget.FoodTest.ListTitle" parent="TextAppearance.FoodTest.Headline6">
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+
+    <style name="Widget.FoodTest.SearchBar" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">?attr/colorOnPrimary</item>
+        <item name="android:textColorHint">?attr/foodTestSearchBarHintColor</item>
+    </style>
+
 </resources>

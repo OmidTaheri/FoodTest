@@ -3,7 +3,9 @@ package ir.omidtaheri.foodtest.presentation
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,6 +19,7 @@ class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private val viewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +44,11 @@ class MainActivity : BaseActivity() {
         binding.navigationView.setupWithNavController(navController)
         binding.bottomNavigation.setupWithNavController(navController)
 
+        setToolbarTitleObserver()
+    }
+
+    private fun setToolbarTitleObserver() {
+        viewModel.toolbarTitle.observe(this, Observer { binding.topAppBar.title = it })
     }
 
     override fun inflateViewBinding(inflater: LayoutInflater): View? {

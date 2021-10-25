@@ -20,7 +20,7 @@ object LocalModule {
             context,
             FoodDatabase::class.java,
             dbName
-        ).build()
+        ).createFromAsset("food.db").build()
     }
 
     @Singleton

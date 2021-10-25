@@ -1,9 +1,11 @@
 package ir.omidtaheri.foodtest
 
 import android.app.Application
+import android.content.Context
 import ir.omidtaheri.foodtest.di.ApplicationComponentProvider
 import ir.omidtaheri.foodtest.di.components.ApplicationComponent
 import ir.omidtaheri.foodtest.di.components.DaggerApplicationComponent
+import ir.omidtaheri.foodtest.utils.LocaleHelper
 
 class ApplicationClass : Application(), ApplicationComponentProvider {
 
@@ -24,5 +26,8 @@ class ApplicationClass : Application(), ApplicationComponentProvider {
         return applicationComponent
     }
 
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(LocaleHelper.setLocale(base, LocaleHelper.Persian))
+    }
 
 }

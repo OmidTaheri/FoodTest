@@ -59,7 +59,7 @@ class SearchViewModel(
 
 
     fun setSearchSubjectObserver() {
-        val disposable = searchSubject.debounce(1000, TimeUnit.MILLISECONDS)
+        val disposable = searchSubject.debounce(2000, TimeUnit.MILLISECONDS)
             .subscribeOn(rxSchedulers.subscribeOn)
             .switchMapMaybe {
                 _isLoading.postValue(true)

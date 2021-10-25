@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -17,6 +18,7 @@ import ir.omidtaheri.foodtest.base.viewmodelutils.GenericSavedStateViewModelFact
 import ir.omidtaheri.foodtest.customview.MultiStatePage
 import ir.omidtaheri.foodtest.databinding.FragmentFoodListBinding
 import ir.omidtaheri.foodtest.di.utils.DaggerInjectUtils
+import ir.omidtaheri.foodtest.presentation.MainActivityViewModel
 import ir.omidtaheri.foodtest.presentation.foodlist.adapter.FoodListAdapter
 import ir.omidtaheri.foodtest.presentation.foodlist.di.components.DaggerFoodListComponent
 import ir.omidtaheri.foodtest.presentation.foodlist.viewmodel.FoodListViewModel
@@ -27,6 +29,7 @@ class FoodListFragment : BaseFragment<FoodListViewModel>(), FoodListAdapter.Call
     private lateinit var multiStatePage: MultiStatePage
     private lateinit var recyclerAdapter: FoodListAdapter
     private var viewBinding: FragmentFoodListBinding? = null
+    private val activityViewModel: MainActivityViewModel by activityViewModels()
 
     private val viewModel: FoodListViewModel by viewModels {
         GenericSavedStateViewModelFactory(viewModelFactory, this)
@@ -36,6 +39,7 @@ class FoodListFragment : BaseFragment<FoodListViewModel>(), FoodListAdapter.Call
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activityViewModel.setToolbarTitle(args.categoryName)
         initRecyclerView()
         fetchData(args.categoryId)
     }

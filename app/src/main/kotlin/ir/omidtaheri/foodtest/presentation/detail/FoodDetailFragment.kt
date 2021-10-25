@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
@@ -16,6 +17,7 @@ import ir.omidtaheri.foodtest.base.glideutils.loadFoodImage
 import ir.omidtaheri.foodtest.base.viewmodelutils.GenericSavedStateViewModelFactory
 import ir.omidtaheri.foodtest.databinding.FragmentFoodDetailBinding
 import ir.omidtaheri.foodtest.di.utils.DaggerInjectUtils
+import ir.omidtaheri.foodtest.presentation.MainActivityViewModel
 import ir.omidtaheri.foodtest.presentation.detail.di.components.DaggerFoodDetailComponent
 import ir.omidtaheri.foodtest.presentation.detail.viewmodel.FoodDetailViewModel
 
@@ -33,6 +35,9 @@ class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
     private val viewModel: FoodDetailViewModel by viewModels {
         GenericSavedStateViewModelFactory(viewModelFactory, this)
     }
+
+    private val activityViewModel: MainActivityViewModel by activityViewModels()
+
     private val args: FoodDetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,6 +78,7 @@ class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
             foodCategory.text = food.categoryName
             foodRecipe.text = food.recipe
             foodMaterial.text = food.materials
+            activityViewModel.setToolbarTitle(food.title)
         })
 
         viewModel.errorMessage.observe(this, Observer {

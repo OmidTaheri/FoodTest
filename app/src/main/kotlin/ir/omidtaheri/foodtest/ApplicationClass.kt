@@ -14,7 +14,7 @@ class ApplicationClass : Application(), ApplicationComponentProvider {
 
         this.applicationComponent =
             DaggerApplicationComponent.factory()
-                .create(this, "FoodDatabase")
+                .create(this, "FoodDatabase.db")
 
         applicationComponent.inject(this)
 

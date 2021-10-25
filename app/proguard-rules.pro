@@ -21,3 +21,8 @@
 #-renamesourcefileattribute SourceFile
 -keep class * extends androidx.room.RoomDatabase
 -keep @androidx.room.Entity class *
+-keepnames class * extends androidx.fragment.app.Fragment
+-keepnames class * extends android.os.Parcelable
+-keepnames class * extends java.io.Serializable
+-keepnames class * extends android.os.Bundle
+-keepnames class androidx.navigation.fragment.NavHostFragment

@@ -20,7 +20,9 @@
             android:id="@+id/searchbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/searchbar_height"
-            android:textColor="?attr/foodTestSearchBarTextColor" />
+            android:textColor="?attr/foodTestSearchBarTextColor"
+            android:maxLines="1"
+            android:inputType="text"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

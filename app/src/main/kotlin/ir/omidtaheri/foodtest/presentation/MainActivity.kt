@@ -3,6 +3,7 @@ package ir.omidtaheri.foodtest.presentation
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -40,11 +41,18 @@ class MainActivity : BaseActivity() {
         binding.navigationView.setupWithNavController(navController)
         binding.bottomNavigation.setupWithNavController(navController)
 
-
     }
 
     override fun inflateViewBinding(inflater: LayoutInflater): View? {
         binding = ActivityMainBinding.inflate(inflater)
         return binding.root
+    }
+
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 }

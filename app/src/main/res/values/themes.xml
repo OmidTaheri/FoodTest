@@ -221,4 +221,16 @@
         <item name="backgroundTint">?attr/colorError</item>
     </style>
 
+    <style name="Widget.FoodTest.SaveButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Widget.FoodTest.TextInputLayout.OutlinedBox" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">?attr/foodTestSearchBarHintColor</item>
+        <item name="boxStrokeColor">?attr/colorSecondaryVariant</item>
+
+    </style>
+
+
 </resources>

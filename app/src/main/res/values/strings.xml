@@ -19,4 +19,13 @@
     <string name="food_detail_recipe_title">دستور پخت</string>
     <string name="food_detail_name_title">نام غذا</string>
     <string name="food_detail_category_title">دسته بندی غذا</string>
+    <string name="bottom_sheet_food_name_hint">نام غذا</string>
+    <string name="bottom_sheet_dialog_title">افزودن غذا</string>
+    <string name="bottom_sheet_food_recipe_hint">دستور پخت</string>
+    <string name="bottom_sheet_food_materials_hint">نام ماده اولیه:مقدار(اینتر)</string>
+    <string name="bottom_sheet_blank_form_message">همه فیلد ها را کامل کنید</string>
+    <string name="bottom_sheet_invalid_pattern_message">مواد اولیه را طبق الگو وارد کنید</string>
+    <string name="insert_food_error_message">خطا در ذخیره سازی اطلاعات</string>
+    <string name="insert_food_success_message">اطلاعات ذخیره شد</string>
+    <string name="bottom_sheet_save_button_text">ذخیره شود</string>
 </resources>

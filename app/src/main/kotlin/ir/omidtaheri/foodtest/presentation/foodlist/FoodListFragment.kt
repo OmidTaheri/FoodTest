@@ -84,7 +84,6 @@ class FoodListFragment : BaseFragment<FoodListViewModel>(),
     }
 
     private fun fetchData(categoryId: Long) {
-        if(viewModel.foods.value ==null)
         viewModel.getFoodList(categoryId)
     }
 

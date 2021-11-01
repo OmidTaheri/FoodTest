@@ -27,7 +27,7 @@ class FoodListViewModel(
     val foods: LiveData<List<FoodModel>>
         get() = _foods
 
-    private val _errorState: MutableLiveData<String> = MutableLiveData()
+    private val _errorState: MutableLiveData<String> = SingleLiveData()
     val errorState: LiveData<String>
         get() = _errorState
 

@@ -68,6 +68,7 @@ class FoodListFragment : BaseFragment<FoodListViewModel>(),
         super.onViewCreated(view, savedInstanceState)
         activityViewModel.setToolbarTitle(args.categoryName)
         initRecyclerView()
+        setLivaDataObservers()
         fetchData(args.categoryId)
     }
 
@@ -233,7 +234,7 @@ class FoodListFragment : BaseFragment<FoodListViewModel>(),
     }
 
     override fun setLivaDataObservers() {
-        viewModel.foods.observe(this, Observer {
+        viewModel.foods.observe(viewLifecycleOwner, Observer {
             if (it.isNotEmpty()) {
                 multiStatePage.getRecyclerView().layoutManager =
                     GridLayoutManager(context, 2)
@@ -248,7 +249,7 @@ class FoodListFragment : BaseFragment<FoodListViewModel>(),
 
         })
 
-        viewModel.errorState.observe(this, Observer {
+        viewModel.errorState.observe(viewLifecycleOwner, Observer {
             multiStatePage.toErrorState(
                 View.OnClickListener {
                     multiStatePage.toLoadingState()
@@ -259,11 +260,11 @@ class FoodListFragment : BaseFragment<FoodListViewModel>(),
             )
         })
 
-        viewModel.addedFoodErrorMessage.observe(this, Observer {
+        viewModel.addedFoodErrorMessage.observe(viewLifecycleOwner, Observer {
             showSnackBar(getString(R.string.insert_food_error_message))
         })
 
-        viewModel.addedFood.observe(this, Observer {
+        viewModel.addedFood.observe(viewLifecycleOwner, Observer {
             showSnackBar(getString(R.string.insert_food_success_message))
             resetBottomSheet()
             recyclerAdapter.addItem(createFoodModel(recentlyAddedItem, it))

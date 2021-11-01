@@ -2,6 +2,7 @@ package ir.omidtaheri.foodtest.presentation.search
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,6 +41,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
+        setLivaDataObservers()
         setSearchbarListeners()
         setSubjectObserver()
     }
@@ -97,7 +99,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
     }
 
     override fun setLivaDataObservers() {
-        viewModel.foods.observe(this, Observer {
+        viewModel.foods.observe(viewLifecycleOwner, Observer {
             if (it.isNotEmpty()) {
                 multiStatePage.getRecyclerView().layoutManager =
                     GridLayoutManager(context, 2)
@@ -113,7 +115,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
 
         })
 
-        viewModel.errorState.observe(this, Observer {
+        viewModel.errorState.observe(viewLifecycleOwner, Observer {
             multiStatePage.toErrorState(
                 View.OnClickListener {
                     if (checkSearchQuery(searchbar.text.toString())) {
@@ -130,7 +132,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
             )
         })
 
-        viewModel.isLoading.observe(this, Observer {
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {
             if (it) {
                 multiStatePage.toLoadingState()
                 hideSoftKeyboard(viewBinding!!.root)

@@ -33,6 +33,7 @@ class CategoryListFragment : BaseFragment<CategoryViewModel>(), CategoryListAdap
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
+        setLivaDataObservers()
         fetchData()
     }
 
@@ -70,12 +71,12 @@ class CategoryListFragment : BaseFragment<CategoryViewModel>(), CategoryListAdap
     }
 
     override fun setLivaDataObservers() {
-        viewModel.categoryItems.observe(this, Observer {
+        viewModel.categoryItems.observe(viewLifecycleOwner, Observer {
             recyclerAdapter.addItems(it)
             multiStatePage.toDateState()
         })
 
-        viewModel.errorState.observe(this, Observer { errorMessage ->
+        viewModel.errorState.observe(viewLifecycleOwner, Observer { errorMessage ->
             multiStatePage.toErrorState(
                 View.OnClickListener {
                     multiStatePage.toLoadingState()

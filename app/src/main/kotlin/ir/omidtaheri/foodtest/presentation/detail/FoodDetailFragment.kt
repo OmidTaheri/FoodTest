@@ -48,6 +48,7 @@ class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
+        setLivaDataObservers()
         fetchData(args.foodId)
     }
 
@@ -86,7 +87,7 @@ class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
     }
 
     override fun setLivaDataObservers() {
-        viewModel.foodDetail.observe(this, Observer { food ->
+        viewModel.foodDetail.observe(viewLifecycleOwner, Observer { food ->
 
             food.imageUrl?.let { foodImage.loadFoodImage(food.imageUrl, requireContext()) }
             foodName.text = food.title
@@ -96,7 +97,7 @@ class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
             activityViewModel.setToolbarTitle(food.title)
         })
 
-        viewModel.errorMessage.observe(this, Observer {
+        viewModel.errorMessage.observe(viewLifecycleOwner, Observer {
             showSnackBar(it)
         })
     }

@@ -7,6 +7,7 @@ import androidx.lifecycle.SavedStateHandle
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import ir.omidtaheri.foodtest.base.BaseAndroidViewModel
 import ir.omidtaheri.foodtest.base.BaseSchedulers
+import ir.omidtaheri.foodtest.base.singlelivedata.SingleLiveData
 import ir.omidtaheri.foodtest.data.datastate.DataState
 import ir.omidtaheri.foodtest.data.models.FoodCategoryModel
 import ir.omidtaheri.foodtest.data.repository.IFoodCategoryRepository
@@ -24,7 +25,7 @@ class CategoryViewModel(
         get() = _categoryItems
 
 
-    private val _errorState: MutableLiveData<String> = MutableLiveData()
+    private val _errorState: MutableLiveData<String> = SingleLiveData()
     val errorState: LiveData<String>
         get() = _errorState
 

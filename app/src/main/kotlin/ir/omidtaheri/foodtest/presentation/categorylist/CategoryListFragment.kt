@@ -48,7 +48,8 @@ class CategoryListFragment : BaseFragment<CategoryViewModel>(), CategoryListAdap
     }
 
     private fun fetchData() {
-        viewModel.getCategoryList()
+        if (viewModel.categoryItems.value == null)
+            viewModel.getCategoryList()
     }
 
     override fun inflateViewBinding(inflater: LayoutInflater, container: ViewGroup?): View? {

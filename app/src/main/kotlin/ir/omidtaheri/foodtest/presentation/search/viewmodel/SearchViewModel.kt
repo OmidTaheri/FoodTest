@@ -60,7 +60,7 @@ class SearchViewModel(
 
 
     fun setSearchSubjectObserver() {
-        val disposable = searchSubject.debounce(2000, TimeUnit.MILLISECONDS)
+        val disposable = searchSubject.debounce(1500, TimeUnit.MILLISECONDS)
             .subscribeOn(rxSchedulers.subscribeOn)
             .filter {
                 it.isNotEmpty() && it.isNotBlank()

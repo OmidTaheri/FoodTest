@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
+import ir.omidtaheri.foodtest.base.singlelivedata.SingleLiveData
 
 open class BaseAndroidViewModel(
     private val mApplication: Application,
@@ -15,7 +16,7 @@ open class BaseAndroidViewModel(
 
     protected val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
-    protected val _isLoading: MutableLiveData<Boolean> = MutableLiveData()
+    protected val _isLoading: MutableLiveData<Boolean> = SingleLiveData()
     val isLoading: LiveData<Boolean>
         get() = _isLoading
 

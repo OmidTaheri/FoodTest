@@ -8,6 +8,7 @@ import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.subjects.PublishSubject
 import ir.omidtaheri.foodtest.base.BaseAndroidViewModel
 import ir.omidtaheri.foodtest.base.BaseSchedulers
+import ir.omidtaheri.foodtest.base.singlelivedata.SingleLiveData
 import ir.omidtaheri.foodtest.data.datastate.DataState
 import ir.omidtaheri.foodtest.data.models.FoodModel
 import ir.omidtaheri.foodtest.data.repository.IFoodRepository
@@ -27,7 +28,7 @@ class SearchViewModel(
     val foods: LiveData<List<FoodModel>>
         get() = _foods
 
-    private val _errorState: MutableLiveData<String> = MutableLiveData()
+    private val _errorState: MutableLiveData<String> = SingleLiveData()
     val errorState: LiveData<String>
         get() = _errorState
 
@@ -61,6 +62,10 @@ class SearchViewModel(
     fun setSearchSubjectObserver() {
         val disposable = searchSubject.debounce(2000, TimeUnit.MILLISECONDS)
             .subscribeOn(rxSchedulers.subscribeOn)
+            .filter {
+                it.isNotEmpty() && it.isNotBlank()
+            }
+            .distinctUntilChanged()
             .switchMapMaybe {
                 _isLoading.postValue(true)
                 foodRepository.searchFood(it)

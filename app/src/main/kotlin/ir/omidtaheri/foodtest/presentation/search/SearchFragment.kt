@@ -41,6 +41,12 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         setSearchbarListeners()
+        setSubjectObserver()
+    }
+
+    private fun setSubjectObserver() {
+        if (viewModel.foods.value == null)
+            viewModel.setSearchSubjectObserver()
     }
 
     private fun initRecyclerView() {
@@ -55,18 +61,9 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
     }
 
     private fun setSearchbarListeners() {
-
-        viewModel.setSearchSubjectObserver()
-
         searchbar.doOnTextChanged { text, _, _, _ ->
-
-            if (checkSearchQuery(text.toString())) {
-                search(text.toString())
-            } else {
-                showToast(getString(R.string.search_fragment_query_blank))
-            }
+            search(text.toString())
         }
-
     }
 
     private fun checkSearchQuery(query: String): Boolean {
@@ -158,7 +155,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(), SearchAdapter.Callback {
         viewBinding = null
     }
 
-    fun hideSoftKeyboard(view: View) {
+    private fun hideSoftKeyboard(view: View) {
         val imm =
             requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.applicationWindowToken, 0)

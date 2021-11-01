@@ -60,6 +60,7 @@ class FoodDetailFragment : BaseFragment<FoodDetailViewModel>() {
     }
 
     private fun fetchData(foodId: Long) {
+        if(viewModel.foodDetail.value ==null)
         viewModel.getFoodDetail(foodId)
     }
 

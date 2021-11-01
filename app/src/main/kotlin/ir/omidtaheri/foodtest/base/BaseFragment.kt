@@ -28,7 +28,6 @@ abstract class BaseFragment<T : ViewModel> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bindUi()
         configDaggerComponent()
-        setLivaDataObservers()
     }
 
     abstract fun bindUi()

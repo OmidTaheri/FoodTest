@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
+import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.subjects.PublishSubject
 import ir.omidtaheri.foodtest.base.BaseAndroidViewModel
@@ -32,6 +33,7 @@ class SearchViewModel(
     val errorState: LiveData<String>
         get() = _errorState
 
+    private var recyclerViewState: LinearLayoutManager.SavedState? = null
 
     fun searchQuery(query: String) {
         val disposable =
@@ -96,5 +98,13 @@ class SearchViewModel(
 
     private fun handleError(errorMessage: String) {
         _errorState.value = errorMessage
+    }
+
+    fun saveStateOfRecyclerView(layoutManagerState: LinearLayoutManager.SavedState?) {
+        recyclerViewState = layoutManagerState
+    }
+
+    fun restoreStateOfRecyclerView(): LinearLayoutManager.SavedState? {
+        return recyclerViewState
     }
 }

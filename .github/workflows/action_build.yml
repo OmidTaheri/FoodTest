@@ -8,7 +8,8 @@ on:
  
 
 jobs:
-  init :
+   # The name of job
+  build_debug :
     runs-on: ubuntu-latest
     steps:
       - name: Create file
@@ -20,14 +21,7 @@ jobs:
          echo "signing.store.password=${{ secrets.SIGN_STORE_PASS }}"          >> "$GITHUB_WORKSPACE"/local.properties
          mkdir -p $(dirname ${{ secrets.SIGN_STORE_FILE }}) && touch ${{ secrets.SIGN_STORE_FILE }}
          echo ${{ secrets.KEY_STORE_FILE_BASE64 }} | base64 --decode > ${{ secrets.SIGN_STORE_FILE }}
-
-
-   # The name of job
-  build_debug :
-    runs-on: ubuntu-latest
-    needs:
-      - init
-    steps:
+         
       - name: Checkout the code
         uses: actions/checkout@v2
       - name: Setup JDK 11

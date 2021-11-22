@@ -13,8 +13,7 @@ jobs:
     steps:
       - name: Create file
         run: |
-         echo  "$GITHUB_WORKSPACE"
-         touch ${RUNNER_TEMP}/local.properties
+         touch $GITHUB_WORKSPACE/local.properties
          echo "sdk.dir=${{ secrets.SDK_DIR }}"                                 >> ./local.properties
          echo "signing.key.alias=${{ secrets.SIGN_KEY_ALIAS }}"                >> ./local.properties
          echo "signing.key.password=${{ secrets.SIGN_KEY_PASS }}"              >> ./local.properties

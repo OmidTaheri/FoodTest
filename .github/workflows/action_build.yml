@@ -13,12 +13,14 @@ jobs:
     steps:
       - name: Create file
         run: |
-         touch $GITHUB_WORKSPACE/local.properties
-         echo "sdk.dir=${{ secrets.SDK_DIR }}"                                 >> $GITHUB_WORKSPACE/local.properties
-         echo "signing.key.alias=${{ secrets.SIGN_KEY_ALIAS }}"                >> $GITHUB_WORKSPACE/local.properties
-         echo "signing.key.password=${{ secrets.SIGN_KEY_PASS }}"              >> $GITHUB_WORKSPACE/local.properties
-         echo "signing.store.file=${{ secrets.SIGN_STORE_FILE }}"              >> $GITHUB_WORKSPACE/local.properties
-         echo "signing.store.password=${{ secrets.SIGN_STORE_PASS }}"          >> $GITHUB_WORKSPACE/local.properties
+         echo "$GITHUB_WORKSPACE"
+         echo  $GITHUB_WORKSPACE
+         touch "$GITHUB_WORKSPACE"/local.properties
+         echo "sdk.dir=${{ secrets.SDK_DIR }}"                                 >> "$GITHUB_WORKSPACE"/local.properties
+         echo "signing.key.alias=${{ secrets.SIGN_KEY_ALIAS }}"                >> "$GITHUB_WORKSPACE"/local.properties
+         echo "signing.key.password=${{ secrets.SIGN_KEY_PASS }}"              >> "$GITHUB_WORKSPACE"/local.properties
+         echo "signing.store.file=${{ secrets.SIGN_STORE_FILE }}"              >> "$GITHUB_WORKSPACE"/local.properties
+         echo "signing.store.password=${{ secrets.SIGN_STORE_PASS }}"          >> "$GITHUB_WORKSPACE"/local.properties
          mkdir -p $(dirname ${{ secrets.SIGN_STORE_FILE }}) && touch ${{ secrets.SIGN_STORE_FILE }}
          echo ${{ secrets.KEY_STORE_FILE_BASE64 }} | base64 --decode > ${{ secrets.SIGN_STORE_FILE }}
 

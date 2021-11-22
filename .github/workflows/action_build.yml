@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Create file
         run: |
+         echo $ANDROID_HOME
          echo "sdk.dir=${{ secrets.SDK_DIR }}"                                 > ./local.properties
          echo "signing.key.alias=${{ secrets.SIGN_KEY_ALIAS }}"                >> ./local.properties
          echo "signing.key.password=${{ secrets.SIGN_KEY_PASS }}"              >> ./local.properties

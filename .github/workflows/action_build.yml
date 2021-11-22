@@ -14,6 +14,7 @@ jobs:
     steps:
       - name: Create file
         run: |
+         touch "$GITHUB_WORKSPACE"/local.properties
          echo "sdk.dir=${{ secrets.SDK_DIR }}"                                 > "$GITHUB_WORKSPACE"/local.properties
          echo "signing.key.alias=${{ secrets.SIGN_KEY_ALIAS }}"                >> "$GITHUB_WORKSPACE"/local.properties
          echo "signing.key.password=${{ secrets.SIGN_KEY_PASS }}"              >> "$GITHUB_WORKSPACE"/local.properties
@@ -22,8 +23,7 @@ jobs:
          mkdir -p $(dirname ${{ secrets.SIGN_STORE_FILE }}) && touch ${{ secrets.SIGN_STORE_FILE }}
          echo ${{ secrets.KEY_STORE_FILE_BASE64 }} | base64 --decode > ${{ secrets.SIGN_STORE_FILE }}
          
-      - name: Checkout the code
-        uses: actions/checkout@v2
+     
       - name: Setup JDK 11
         uses: actions/setup-java@v1
         with:

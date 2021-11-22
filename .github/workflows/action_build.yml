@@ -19,12 +19,11 @@ jobs:
          echo "sdk.dir=$ANDROID_HOME"                                          > ./local.properties
          echo "signing.key.alias=${{ secrets.SIGN_KEY_ALIAS }}"                >> ./local.properties
          echo "signing.key.password=${{ secrets.SIGN_KEY_PASS }}"              >> ./local.properties
-         echo "signing.store.file=${{ secrets.SIGN_STORE_FILE }}"              >> ./local.properties
+         echo "signing.store.file=.${{ secrets.SIGN_STORE_FILE }}"              >> ./local.properties
          echo "signing.store.password=${{ secrets.SIGN_STORE_PASS }}"          >> ./local.properties
          mkdir -p $(dirname ${{ secrets.SIGN_STORE_FILE }}) && touch ${{ secrets.SIGN_STORE_FILE }}
          echo ${{ secrets.KEY_STORE_FILE_BASE64 }} | base64 --decode > ${{ secrets.SIGN_STORE_FILE }}
-         pwd
-         ls
+ 
       - name: Setup JDK 11
         uses: actions/setup-java@v1
         with:
@@ -51,12 +50,11 @@ jobs:
          echo "sdk.dir=${{ secrets.SDK_DIR }}"                                 > ./local.properties
          echo "signing.key.alias=${{ secrets.SIGN_KEY_ALIAS }}"                >> ./local.properties
          echo "signing.key.password=${{ secrets.SIGN_KEY_PASS }}"              >> ./local.properties
-         echo "signing.store.file=${{ secrets.SIGN_STORE_FILE }}"              >> ./local.properties
+         echo "signing.store.file=.${{ secrets.SIGN_STORE_FILE }}"              >> ./local.properties
          echo "signing.store.password=${{ secrets.SIGN_STORE_PASS }}"          >> ./local.properties
          mkdir -p $(dirname ${{ secrets.SIGN_STORE_FILE }}) && touch ${{ secrets.SIGN_STORE_FILE }}
          echo ${{ secrets.KEY_STORE_FILE_BASE64 }} | base64 --decode > ${{ secrets.SIGN_STORE_FILE }}
-         pwd
-         ls
+         
          
       - name: Set Up JDK 11
         uses: actions/setup-java@v1
@@ -77,12 +75,11 @@ jobs:
          echo "sdk.dir=$ANDROID_HOME"                                          > ./local.properties
          echo "signing.key.alias=${{ secrets.SIGN_KEY_ALIAS }}"                >> ./local.properties
          echo "signing.key.password=${{ secrets.SIGN_KEY_PASS }}"              >> ./local.properties
-         echo "signing.store.file=${{ secrets.SIGN_STORE_FILE }}"              >> ./local.properties
+         echo "signing.store.file=.${{ secrets.SIGN_STORE_FILE }}"              >> ./local.properties
          echo "signing.store.password=${{ secrets.SIGN_STORE_PASS }}"          >> ./local.properties
          mkdir -p $(dirname ${{ secrets.SIGN_STORE_FILE }}) && touch ${{ secrets.SIGN_STORE_FILE }}
          echo ${{ secrets.KEY_STORE_FILE_BASE64 }} | base64 --decode > ${{ secrets.SIGN_STORE_FILE }}
-         pwd
-         ls
+       
       - name: Setup JDK 11
         uses: actions/setup-java@v1
         with:

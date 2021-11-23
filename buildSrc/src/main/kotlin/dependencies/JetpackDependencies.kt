@@ -11,6 +11,10 @@ object JetpackDependencies {
     const val NAVIGATION_UI =
         "androidx.navigation:navigation-ui-ktx:${DependenciesVersions.JetpackDependenciesVersions.NAVIGATION}"
 
+    const val FRAGMENT =
+        "androidx.fragment:fragment-ktx:${DependenciesVersions.JetpackDependenciesVersions.FRAGMENT}"
+
+
     const val ROOM =
         "androidx.room:room-runtime:${DependenciesVersions.JetpackDependenciesVersions.ROOM}"
 

@@ -105,6 +105,7 @@ dependencies {
     implementation(GeneralDependencies.DAGGER)
     implementation(JetpackDependencies.NAVIGATION_FRAGMENT)
     implementation(JetpackDependencies.NAVIGATION_UI)
+    implementation(JetpackDependencies.FRAGMENT)
     implementation(UiDependencies.GLIDE)
     kapt(AnnotationProcessorsDependencies.GLIDE_COMPILER)
 }

@@ -1,6 +1,10 @@
 package dependencies
 
 object UiDependencies {
+
+    const val ACTIVITY =
+        "androidx.activity:activity-ktx:${DependenciesVersions.UiDependenciesVersions.ACTIVITY}"
+
     const val APPCOMPAT =
         "androidx.appcompat:appcompat:${DependenciesVersions.UiDependenciesVersions.APPCOMPAT}"
 
@@ -12,6 +16,12 @@ object UiDependencies {
 
     const val GLIDE =
         "com.github.bumptech.glide:glide:${DependenciesVersions.GeneralDependenciesVersions.GLIDE}"
+
+    const val DRAWER_LAYOUT =
+        "androidx.drawerlayout:drawerlayout:${DependenciesVersions.UiDependenciesVersions.DRAWER_LAYOUT}"
+
+    const val RECYCLER_VIEW =
+        "androidx.recyclerview:recyclerview:${DependenciesVersions.UiDependenciesVersions.RECYCLER_VIEW}"
 
 
 }

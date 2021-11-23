@@ -9,4 +9,7 @@ object AnnotationProcessorsDependencies {
 
     const val GLIDE_COMPILER =
      "com.github.bumptech.glide:compiler:${DependenciesVersions.GeneralDependenciesVersions.GLIDE}"
+
+    const val LIFECYCLE =
+        "androidx.lifecycle:lifecycle-compiler:${DependenciesVersions.JetpackDependenciesVersions.LIFECYCLE}"
 }

@@ -84,9 +84,12 @@ android.sourceSets.all {
 
 dependencies {
     implementation(JetpackDependencies.CORE_KTX)
+    implementation(UiDependencies.ACTIVITY)
     implementation(UiDependencies.APPCOMPAT)
     implementation(UiDependencies.MATERIAL)
     implementation(UiDependencies.CONSTRAINT_LAYOUT)
+    implementation(UiDependencies.DRAWER_LAYOUT)
+    implementation(UiDependencies.RECYCLER_VIEW)
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.EXT_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)
@@ -102,6 +105,11 @@ dependencies {
     implementation(GeneralDependencies.DAGGER)
     implementation(JetpackDependencies.NAVIGATION_FRAGMENT)
     implementation(JetpackDependencies.NAVIGATION_UI)
+    implementation(JetpackDependencies.FRAGMENT)
     implementation(UiDependencies.GLIDE)
     kapt(AnnotationProcessorsDependencies.GLIDE_COMPILER)
+    implementation(JetpackDependencies.LIFECYCLE_VIEWMODEL)
+    implementation(JetpackDependencies.LIFECYCLE_LIVEDATA)
+    implementation(JetpackDependencies.LIFECYCLE_SAVE_STATE)
+    kapt(AnnotationProcessorsDependencies.LIFECYCLE)
 }

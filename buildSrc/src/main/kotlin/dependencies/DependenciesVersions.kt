@@ -19,13 +19,18 @@ object DependenciesVersions {
         const val CORE_KTX = "1.6.0"
         const val ROOM = "2.3.0"
         const val NAVIGATION = "2.4.0-alpha04"
+        const val FRAGMENT = "1.4.0"
+        const val LIFECYCLE = "2.4.0"
     }
 
 
     object UiDependenciesVersions {
-        const val APPCOMPAT = "1.3.1"
+        const val APPCOMPAT = "1.4.0"
+        const val ACTIVITY = "1.4.0"
         const val MATERIAL = "1.4.0"
         const val CONSTRAINT_LAYOUT = "2.1.1"
+        const val DRAWER_LAYOUT = "1.1.1"
+        const val RECYCLER_VIEW = "1.2.1"
     }
 
     object TestDependenciesVersions {

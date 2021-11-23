@@ -20,4 +20,8 @@ object UiDependencies {
     const val DRAWER_LAYOUT =
         "androidx.drawerlayout:drawerlayout:${DependenciesVersions.UiDependenciesVersions.DRAWER_LAYOUT}"
 
+    const val RECYCLER_VIEW =
+        "androidx.recyclerview:recyclerview:${DependenciesVersions.UiDependenciesVersions.RECYCLER_VIEW}"
+
+
 }

@@ -20,6 +20,7 @@ object DependenciesVersions {
         const val ROOM = "2.3.0"
         const val NAVIGATION = "2.4.0-alpha04"
         const val FRAGMENT = "1.4.0"
+        const val LIFECYCLE = "2.4.0"
     }
 
 

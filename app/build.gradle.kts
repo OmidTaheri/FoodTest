@@ -108,4 +108,8 @@ dependencies {
     implementation(JetpackDependencies.FRAGMENT)
     implementation(UiDependencies.GLIDE)
     kapt(AnnotationProcessorsDependencies.GLIDE_COMPILER)
+    implementation(JetpackDependencies.LIFECYCLE_VIEWMODEL)
+    implementation(JetpackDependencies.LIFECYCLE_LIVEDATA)
+    implementation(JetpackDependencies.LIFECYCLE_SAVE_STATE)
+    kapt(AnnotationProcessorsDependencies.LIFECYCLE)
 }

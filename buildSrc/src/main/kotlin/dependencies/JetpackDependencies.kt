@@ -14,6 +14,14 @@ object JetpackDependencies {
     const val FRAGMENT =
         "androidx.fragment:fragment-ktx:${DependenciesVersions.JetpackDependenciesVersions.FRAGMENT}"
 
+    const val LIFECYCLE_VIEWMODEL =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${DependenciesVersions.JetpackDependenciesVersions.LIFECYCLE}"
+
+    const val LIFECYCLE_LIVEDATA =
+        "androidx.lifecycle:lifecycle-livedata-ktx:${DependenciesVersions.JetpackDependenciesVersions.LIFECYCLE}"
+
+    const val LIFECYCLE_SAVE_STATE =
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:${DependenciesVersions.JetpackDependenciesVersions.LIFECYCLE}"
 
     const val ROOM =
         "androidx.room:room-runtime:${DependenciesVersions.JetpackDependenciesVersions.ROOM}"

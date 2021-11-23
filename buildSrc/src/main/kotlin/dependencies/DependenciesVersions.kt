@@ -27,6 +27,7 @@ object DependenciesVersions {
         const val ACTIVITY = "1.4.0"
         const val MATERIAL = "1.4.0"
         const val CONSTRAINT_LAYOUT = "2.1.1"
+        const val DRAWER_LAYOUT = "1.1.1"
     }
 
     object TestDependenciesVersions {

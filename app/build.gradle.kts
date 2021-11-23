@@ -88,6 +88,7 @@ dependencies {
     implementation(UiDependencies.APPCOMPAT)
     implementation(UiDependencies.MATERIAL)
     implementation(UiDependencies.CONSTRAINT_LAYOUT)
+    implementation(UiDependencies.DRAWER_LAYOUT)
     testImplementation(TestDependencies.JUNIT)
     androidTestImplementation(TestDependencies.EXT_JUNIT)
     androidTestImplementation(TestDependencies.ESPRESSO)

@@ -17,5 +17,7 @@ object UiDependencies {
     const val GLIDE =
         "com.github.bumptech.glide:glide:${DependenciesVersions.GeneralDependenciesVersions.GLIDE}"
 
+    const val DRAWER_LAYOUT =
+        "androidx.drawerlayout:drawerlayout:${DependenciesVersions.UiDependenciesVersions.DRAWER_LAYOUT}"
 
 }

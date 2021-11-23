@@ -1,6 +1,10 @@
 package dependencies
 
 object UiDependencies {
+
+    const val ACTIVITY =
+        "androidx.activity:activity-ktx:${DependenciesVersions.UiDependenciesVersions.ACTIVITY}"
+
     const val APPCOMPAT =
         "androidx.appcompat:appcompat:${DependenciesVersions.UiDependenciesVersions.APPCOMPAT}"
 

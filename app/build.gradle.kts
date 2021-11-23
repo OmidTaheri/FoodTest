@@ -84,6 +84,7 @@ android.sourceSets.all {
 
 dependencies {
     implementation(JetpackDependencies.CORE_KTX)
+    implementation(UiDependencies.ACTIVITY)
     implementation(UiDependencies.APPCOMPAT)
     implementation(UiDependencies.MATERIAL)
     implementation(UiDependencies.CONSTRAINT_LAYOUT)

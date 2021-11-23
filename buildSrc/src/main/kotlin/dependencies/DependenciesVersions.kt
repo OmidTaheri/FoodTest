@@ -24,6 +24,7 @@ object DependenciesVersions {
 
     object UiDependenciesVersions {
         const val APPCOMPAT = "1.4.0"
+        const val ACTIVITY = "1.4.0"
         const val MATERIAL = "1.4.0"
         const val CONSTRAINT_LAYOUT = "2.1.1"
     }

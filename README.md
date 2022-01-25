@@ -30,8 +30,8 @@ showcase for Room database
 * Jetpack Room Database
 * Glide - Load Image
 * Dagger- Dependency Injection
-* RxJava/RxAndroid- Reacttive Programming
-* Kotlin DSL
+* RxJava/RxAndroid- Reactive Programming
+* Kotlin Script– Build files
 
  ![-----------------------------------------------------](ScreenShots/rainbow.png)
  

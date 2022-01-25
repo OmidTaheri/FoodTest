@@ -23,7 +23,7 @@ showcase for Room database
   ![-----------------------------------------------------](ScreenShots/rainbow.png)
 
 ### `Tools & Dependencies`
-* Clean Ahitecture(MVVM)
+* Clean Architecture(MVVM)
 * Single Activity
 * Google Material Design
 * Jetpack Navigation Component
